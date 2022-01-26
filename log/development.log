@@ -1,0 +1,2246 @@
+  [1m[35m (646.4ms)[0m  [1m[35mCREATE DATABASE "jwt_rails_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (11290.3ms)[0m  [1m[35mCREATE DATABASE "jwt_rails_api_development" ENCODING = 'SQL_ASCII'[0m
+  [1m[35m (6638.8ms)[0m  [1m[35mCREATE DATABASE "jwt_rails_api_test" ENCODING = 'SQL_ASCII'[0m
+  [1m[35m (887.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (531.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20211017093657)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (502.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "age" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211017093657"]]
+  [1m[36mTRANSACTION (112.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (33.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (45.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-10-17 09:59:09.769827"], ["updated_at", "2021-10-17 09:59:09.769827"]]
+  [1m[36mTRANSACTION (88.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (45.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "raj"], ["password_digest", "$2a$12$UUswxxW1ZcM.zxEjBGpc0uSNu43R6aPNQCDwQ.RSDGD5fOwnEdDvq"], ["age", 60], ["created_at", "2021-10-17 10:19:11.914386"], ["updated_at", "2021-10-17 10:19:11.914386"]]
+  [1m[36mTRANSACTION (104.8ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/users/sign_in" for ::1 at 2021-10-17 19:13:58 +0530
+  [1m[35m (10.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/users/sign_in"):
+  
+Started POST "/users/sign_in" for ::1 at 2021-10-17 19:24:53 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/users/sign_in"):
+  
+Started POST "/users/login" for ::1 at 2021-10-17 19:26:58 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/users/login"):
+  
+  [1m[35m (36.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeColumnTypeInUserModel (20211017142132)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (567.6ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "username" TO "email"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (40.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211017142132"]]
+  [1m[36mTRANSACTION (267.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (95.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveAgeColumnFromUsers (20211017143707)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (406.1ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "age"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211017143707"]]
+  [1m[36mTRANSACTION (107.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (246.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Destroy (344.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mUser Load (10.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (31.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (115.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raj1@raj.com"], ["password_digest", "$2a$12$52OXDjlQdbCJKFe.TzNETOY6kWi7xfFE7z079ApeMk.Be8.o8Rl9q"], ["created_at", "2021-10-17 14:50:22.747946"], ["updated_at", "2021-10-17 14:50:22.747946"]]
+  [1m[36mTRANSACTION (63.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users/login" for ::1 at 2021-10-17 20:23:01 +0530
+  [1m[35m (10.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/users/login"):
+  
+Started POST "/users/login" for ::1 at 2021-10-17 20:37:22 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/users/login"):
+  
+Started POST "/users/login" for ::1 at 2021-10-17 20:43:56 +0530
+Started POST "/users/login" for ::1 at 2021-10-17 20:43:56 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/users/login"):
+  
+  
+ActionController::RoutingError (No route matches [POST] "/users/login"):
+  
+Started POST "/login" for ::1 at 2021-10-17 20:50:58 +0530
+  [1m[35m (81.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (51.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 3179ms (Views: 3.1ms | ActiveRecord: 1291.6ms | Allocations: 7150)
+
+
+  [1m[36mUser Load (18.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users" for 127.0.0.1 at 2021-10-21 07:57:51 +0530
+  [1m[35m (45.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20211020170010_add_admin_to_user.rb
+
+
+):
+  
+activerecord (6.1.4.1) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.4.1) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.4.1) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.4.1) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAdminToUser (20211020170010)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (533.3ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT FALSE[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211020170010"]]
+  [1m[36mTRANSACTION (33.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (39.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for 127.0.0.1 at 2021-10-21 07:58:53 +0530
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"raj1@raj.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 449ms (Views: 0.7ms | ActiveRecord: 8.5ms | Allocations: 9954)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-10-21 08:01:16 +0530
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"raj2@raj.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 44ms (Views: 0.8ms | ActiveRecord: 3.2ms | Allocations: 2733)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-10-21 08:03:04 +0530
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "confirm_password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 31ms (Views: 0.5ms | ActiveRecord: 3.5ms | Allocations: 2669)
+
+
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (37.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raj2@raj.com"], ["password_digest", "$2a$12$EoK87CuTWZhjWmnvru1t3uAApwzWkn778JqTAFPNtb77E2m9nJkAq"], ["created_at", "2021-10-21 02:34:53.769301"], ["updated_at", "2021-10-21 02:34:53.769301"]]
+  [1m[36mTRANSACTION (38.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users" for 127.0.0.1 at 2021-10-21 08:05:45 +0530
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"raj2@raj.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 31ms (Views: 0.9ms | ActiveRecord: 2.3ms | Allocations: 2653)
+
+
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users" for 127.0.0.1 at 2021-10-21 08:07:11 +0530
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"raj3@raj.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 37ms (Views: 1.1ms | ActiveRecord: 2.9ms | Allocations: 2652)
+
+
+  [1m[35m (58.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2021-10-21 08:16:29 +0530
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"raj3@raj.com", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (239.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (34.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 23576ms (Views: 253.9ms | ActiveRecord: 4748.5ms | Allocations: 4606)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-10-21 09:04:16 +0530
+  [1m[35m (29.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"raj3@raj.com", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 768ms (Views: 0.7ms | ActiveRecord: 392.7ms | Allocations: 9989)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-10-21 09:37:08 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"raj3@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj3@raj.com"}}
+[31mUnpermitted parameters: :password, :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj3@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj3@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 54ms (Views: 1.7ms | ActiveRecord: 14.2ms | Allocations: 4704)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-10-21 09:38:56 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"raj3@raj.com", "password_digest"=>"[FILTERED]", "user"=>{"email"=>"raj3@raj.com", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj3@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (111.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raj3@raj.com"], ["password_digest", "rajraj"], ["created_at", "2021-10-21 04:08:56.945612"], ["updated_at", "2021-10-21 04:08:56.945612"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (185.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "raj3@raj.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 379ms (Views: 0.9ms | ActiveRecord: 299.8ms | Allocations: 4054)
+
+
+  [1m[35m (405.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/users" for 127.0.0.1 at 2021-10-21 09:46:50 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for 127.0.0.1 at 2021-10-21 09:55:31 +0530
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+Completed 204 No Content in 182ms (ActiveRecord: 123.3ms | Allocations: 2144)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 09:56:33 +0530
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:7: syntax error, unexpected ':', expecting `end'
+    return json: @users
+               ^
+):
+  
+app/controllers/users_controller.rb:7: syntax error, unexpected ':', expecting `end'
+app/controllers/users_controller.rb:7: syntax error, unexpected ':', expecting `end'
+Started GET "/users" for 127.0.0.1 at 2021-10-21 09:57:33 +0530
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (23.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 194ms (Views: 21.3ms | ActiveRecord: 140.8ms | Allocations: 6339)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 09:59:22 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 1.1ms | Allocations: 991)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 11:13:05 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (78.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 6354ms (Views: 5380.7ms | ActiveRecord: 1383.0ms | Allocations: 2937)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 11:30:37 +0530
+  [1m[35m (38.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:14: syntax error, unexpected ')', expecting `end'
+...ser.id},  Time.now.to_i + 120))
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:17: syntax error, unexpected '}', expecting `end'
+...ername or password for signup"}
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:27: syntax error, unexpected tLAMBEG
+      render json: {user: @user, token: token}
+                   ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:29: syntax error, unexpected '}', expecting `end'
+...sername or password for login"}
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:43: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users_controller.rb:14: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:17: syntax error, unexpected '}', expecting `end'
+app/controllers/users_controller.rb:27: syntax error, unexpected tLAMBEG
+app/controllers/users_controller.rb:29: syntax error, unexpected '}', expecting `end'
+app/controllers/users_controller.rb:43: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users_controller.rb:14: syntax error, unexpected ')', expecting `end'
+app/controllers/users_controller.rb:17: syntax error, unexpected '}', expecting `end'
+app/controllers/users_controller.rb:27: syntax error, unexpected tLAMBEG
+app/controllers/users_controller.rb:29: syntax error, unexpected '}', expecting `end'
+app/controllers/users_controller.rb:43: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/users" for 127.0.0.1 at 2021-10-21 11:32:24 +0530
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (24.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 726ms (Views: 15.4ms | ActiveRecord: 804.0ms | Allocations: 6324)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 11:33:01 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.7ms | Allocations: 991)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 11:34:33 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 2.0ms | Allocations: 988)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 11:35:25 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.7ms | Allocations: 988)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 11:37:26 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.7ms | Allocations: 988)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 11:47:11 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 49ms (Views: 47.5ms | ActiveRecord: 10.0ms | Allocations: 2905)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-10-21 12:04:24 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"raj4@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj4@raj.com"}}
+[31mUnpermitted parameters: :password, :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (46.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj4@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (14.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj4@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 524ms (Views: 1.8ms | ActiveRecord: 86.2ms | Allocations: 6488)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-10-21 12:05:00 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"raj4@raj.com", "password_digest"=>"[FILTERED]", "user"=>{"email"=>"raj4@raj.com", "password_digest"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj4@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (917.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raj4@raj.com"], ["password_digest", "rajraj"], ["created_at", "2021-10-21 06:35:00.150946"], ["updated_at", "2021-10-21 06:35:00.150946"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (2134.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "raj4@raj.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 3872ms (Views: 0.7ms | ActiveRecord: 3052.9ms | Allocations: 3951)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 12:05:18 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.6ms | Allocations: 1150)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 12:08:11 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.9ms | Allocations: 1077)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 12:14:45 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 48ms (Views: 47.1ms | ActiveRecord: 10.9ms | Allocations: 3010)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 14:42:01 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (67.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 8493ms (Views: 7679.6ms | ActiveRecord: 1311.9ms | Allocations: 3069)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 14:50:39 +0530
+  [1m[35m (9.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:15: syntax error, unexpected local variable or method, expecting ')'
+      render json: {user: @user, token: t...
+      ^~~~~~
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:27: syntax error, unexpected local variable or method, expecting ')'
+      render json: {user: @user, token: t...
+      ^~~~~~
+):
+  
+app/controllers/users_controller.rb:15: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/users_controller.rb:27: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/users_controller.rb:15: syntax error, unexpected local variable or method, expecting ')'
+app/controllers/users_controller.rb:27: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/users" for 127.0.0.1 at 2021-10-21 14:52:20 +0530
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 505ms (Views: 14.0ms | ActiveRecord: 731.5ms | Allocations: 6425)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 14:53:46 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 1.2ms | Allocations: 1096)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 14:53:57 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.8ms | Allocations: 1093)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2021-10-21 15:53:06 +0530
+  [1m[35m (14.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/users/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2021-10-21 15:55:18 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (28.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 200 OK in 863ms (Views: 1.4ms | ActiveRecord: 246.6ms | Allocations: 7557)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 15:55:44 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.8ms | Allocations: 1147)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 15:55:55 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.8ms | Allocations: 1093)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 15:56:59 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.7ms | Allocations: 1093)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-10-21 15:58:30 +0530
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.7ms | Allocations: 1079)
+
+
+Started GET "/users" for ::1 at 2021-10-21 16:26:31 +0530
+Processing by UsersController#index as */*
+  [1m[36mUser Load (16.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 4370ms (Views: 4057.9ms | ActiveRecord: 779.1ms | Allocations: 3042)
+
+
+Started POST "/login" for ::1 at 2021-10-21 16:30:13 +0530
+Processing by UsersController#login as */*
+  [1m[36mUser Load (17.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 200 OK in 398ms (Views: 1.8ms | ActiveRecord: 26.0ms | Allocations: 735)
+
+
+Started POST "/login" for ::1 at 2021-10-21 16:40:59 +0530
+Processing by UsersController#login as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 200 OK in 1041ms (Views: 32.6ms | ActiveRecord: 81.4ms | Allocations: 2655)
+
+
+Started POST "/login" for ::1 at 2021-10-21 16:45:30 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (400.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 200 OK in 3341ms (Views: 652.8ms | ActiveRecord: 400.0ms | Allocations: 776)
+
+
+Started GET "/users" for ::1 at 2021-10-21 16:48:35 +0530
+Processing by UsersController#index as */*
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 176ms (Views: 164.4ms | ActiveRecord: 1.3ms | Allocations: 1077)
+
+
+Started GET "/users" for ::1 at 2021-10-21 17:02:20 +0530
+Processing by UsersController#index as */*
+  [1m[36mUser Load (16.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 10165ms (Views: 10163.0ms | ActiveRecord: 1943.7ms | Allocations: 3042)
+
+
+Started POST "/login" for ::1 at 2021-10-21 20:47:14 +0530
+  [1m[35m (97.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  [1m[36mUser Load (198.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 200 OK in 2629ms (Views: 138.1ms | ActiveRecord: 785.4ms | Allocations: 7576)
+
+
+Started POST "/signup" for ::1 at 2021-10-22 10:07:32 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/signup" for ::1 at 2021-10-22 10:12:59 +0530
+  [1m[35m (36.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/signup"):
+  
+Started POST "/create" for ::1 at 2021-10-22 10:17:30 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/create"):
+  
+Started POST "/users/create" for ::1 at 2021-10-22 10:18:27 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/users/create"):
+  
+Started POST "/signin" for ::1 at 2021-10-22 10:20:15 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+[31mUnpermitted parameters: :password, :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (60.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 393ms (Views: 72.3ms | ActiveRecord: 226.2ms | Allocations: 6788)
+
+
+Started POST "/signin" for ::1 at 2021-10-22 10:24:16 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj5@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj5@raj.com"}}
+[31mUnpermitted parameters: :password, :user[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj5@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj5@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 112ms (Views: 1.0ms | ActiveRecord: 4.0ms | Allocations: 2747)
+
+
+Started POST "/signin" for ::1 at 2021-10-22 14:05:12 +0530
+  [1m[35m (66.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/signin"):
+  
+Started POST "/create" for ::1 at 2021-10-22 14:06:14 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/create"):
+  
+Started POST "/users/create" for ::1 at 2021-10-22 14:08:00 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/users/create"):
+  
+Started POST "/users" for ::1 at 2021-10-22 14:17:58 +0530
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+[31mUnpermitted parameters: :password, :user[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (200.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 893ms (Views: 78.1ms | ActiveRecord: 427.1ms | Allocations: 9499)
+
+
+Started POST "/users" for ::1 at 2021-10-22 14:19:56 +0530
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (5.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 1211ms (Views: 1.3ms | ActiveRecord: 24.6ms | Allocations: 9547)
+
+
+Started POST "/users" for ::1 at 2021-10-22 14:22:38 +0530
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 1307ms (Views: 10.3ms | ActiveRecord: 32.0ms | Allocations: 9550)
+
+
+Started POST "/users" for ::1 at 2021-10-22 14:47:31 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj9@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj9@raj.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (12.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj9@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (222.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raj9@raj.com"], ["password_digest", "$2a$12$zgrmpqUeSLFcIEdCIx7/2OnxADUUs/9Z1l9n38HKdYLS1UN59m.Vy"], ["created_at", "2021-10-22 09:17:32.970127"], ["updated_at", "2021-10-22 09:17:32.970127"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (146.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "raj9@raj.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 1542ms (Views: 2.3ms | ActiveRecord: 400.5ms | Allocations: 6047)
+
+
+Started POST "/login" for ::1 at 2021-10-26 20:41:13 +0530
+Started POST "/login" for ::1 at 2021-10-26 20:41:13 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2021-10-26 21:38:14 +0530
+  [1m[35m (49.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (58.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 200 OK in 2265ms (Views: 20.5ms | ActiveRecord: 118.4ms | Allocations: 7574)
+
+
+Started POST "/login" for ::1 at 2021-10-30 22:08:34 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2021-10-30 22:11:04 +0530
+  
+ActiveRecord::ConnectionNotEstablished (FATAL:  the database system is starting up
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2021-10-30 22:15:50 +0530
+  [1m[35m (45.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  [1m[36mUser Load (97.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 200 OK in 1931ms (Views: 30.0ms | ActiveRecord: 187.6ms | Allocations: 7190)
+
+
+Started POST "/login" for ::1 at 2021-10-30 22:17:29 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 200 OK in 1451ms (Views: 404.0ms | ActiveRecord: 1.6ms | Allocations: 1047)
+
+
+Started POST "/users" for ::1 at 2021-10-30 22:18:32 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj3@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj3@raj.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj3@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj3@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 1061ms (Views: 1.1ms | ActiveRecord: 4.7ms | Allocations: 3266)
+
+
+Started POST "/users" for ::1 at 2021-10-30 22:19:12 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj11@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj11@raj.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj11@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (32.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raj11@raj.com"], ["password_digest", "$2a$12$qlQNuLNskRIZ52KVPuhaZeRkyH3QCHHiyNSV2MehUizIV48JeQQdq"], ["created_at", "2021-10-30 16:49:13.140310"], ["updated_at", "2021-10-30 16:49:13.140310"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (39.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "raj11@raj.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+Completed 200 OK in 1137ms (Views: 12.0ms | ActiveRecord: 77.0ms | Allocations: 3831)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (53.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateClients (20211102003911)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1250.7ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "cname" character varying, "address1" character varying, "address2" character varying, "apptDate" timestamp, "apptTime" timestamp, "location" integer, "mobile" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_21c421fd41"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (94.5ms)[0m  [1m[35mCREATE INDEX "index_clients_on_user_id" ON "clients" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (8.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211102003911"]]
+  [1m[36mTRANSACTION (80.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (58.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (46.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (8.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateClients (20211102010750)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (963.3ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "cname" character varying, "address1" character varying, "address2" character varying, "location" integer, "mobile" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_21c421fd41"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateClients (20211102012503)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (239.1ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "cname" character varying, "address1" character varying, "address2" character varying, "location" integer, "mobile" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_21c421fd41"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateClients (20211102013706)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.5ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "cname" character varying, "address1" character varying, "address2" character varying, "location" integer, "mobile" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_21c421fd41"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (12.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (43.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (96.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveColumnApptDateFromClients (20211102020408)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (542.7ms)[0m  [1m[35mALTER TABLE "clients" DROP COLUMN "apptdate"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveColumnApptDateFromClients (20211102020408)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (382.2ms)[0m  [1m[35mALTER TABLE "clients" DROP COLUMN "apptDate"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (121.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211102020408"]]
+  [1m[36mTRANSACTION (73.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveColumnApptTimeFromClients (20211102020622)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "clients" DROP COLUMN "apptTime"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211102020622"]]
+  [1m[36mTRANSACTION (61.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBookings (20211102020844)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (524.9ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" bigserial primary key, "bookingDate" timestamp, "bookingTime" timestamp, "client_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_2c503ea743"
+FOREIGN KEY ("client_id")
+  REFERENCES "clients" ("id")
+)[0m
+  [1m[35m (83.5ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_client_id" ON "bookings" ("client_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211102020844"]]
+  [1m[36mTRANSACTION (47.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (171.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mClient Load (71.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mClient Create (1165.4ms)[0m  [1m[32mINSERT INTO "clients" ("cname", "address1", "address2", "location", "mobile", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["cname", "raj1"], ["address1", "add one"], ["address2", "add two"], ["location", 500047], ["mobile", "9849511111"], ["user_id", 2], ["created_at", "2021-11-02 02:45:08.871789"], ["updated_at", "2021-11-02 02:45:08.871789"]]
+  [1m[36mTRANSACTION (274.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBooking Load (94.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mClient Load (1.8ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBooking Create (3.8ms)[0m  [1m[32mINSERT INTO "bookings" ("bookingDate", "bookingTime", "client_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["bookingDate", "2021-11-10 00:00:00"], ["bookingTime", "2021-11-02 10:30:00"], ["client_id", 1], ["created_at", "2021-11-02 02:48:19.027216"], ["updated_at", "2021-11-02 02:48:19.027216"]]
+  [1m[36mTRANSACTION (79.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mBooking Load (1.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (112.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/" for ::1 at 2021-11-02 08:49:07 +0530
+  [1m[35m (85.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/raj/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/raj/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 83.1ms | Allocations: 359)
+Completed 200 OK in 1428ms (Views: 382.4ms | ActiveRecord: 0.0ms | Allocations: 3217)
+
+
+Started GET "/" for ::1 at 2021-11-02 08:54:12 +0530
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/raj/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/raj/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 62.8ms | Allocations: 181)
+Completed 200 OK in 72ms (Views: 68.2ms | ActiveRecord: 0.0ms | Allocations: 868)
+
+
+Started GET "/users" for ::1 at 2021-11-02 08:54:32 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+  [1m[36mClient Load (18.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (17.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookings"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients"[0m
+  [1m[35m (59.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (51.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mClient Load (125.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mClient Load (1.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1 ORDER BY "clients"."id" ASC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mClient Load (1.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1 ORDER BY "clients"."id" ASC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mBooking Load (29.7ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."client_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["client_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (12.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[35m (16.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6253325581542224430)[0m
+  [1m[35m (65.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddLocationToBookings (20211108122348)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (597.4ms)[0m  [1m[35mALTER TABLE "bookings" ADD "location" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (27.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211108122348"]]
+  [1m[36mTRANSACTION (141.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (79.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6253325581542224430)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (177.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (48.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (93.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients"[0m
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (63.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookings"[0m
+  [1m[36mBooking Load (0.6ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (33.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1 ORDER BY "clients"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1 ORDER BY "clients"."id" DESC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mBooking Load (1.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."client_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["client_id", 1], ["LIMIT", 11]]
+Started POST "/login" for ::1 at 2021-11-09 22:50:50 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2021-11-09 22:53:20 +0530
+  [1m[35m (86.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj@raj.com"}}
+  [1m[36mUser Load (44.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 233ms (Views: 1.9ms | ActiveRecord: 141.4ms | Allocations: 1535)
+
+
+Started POST "/login" for ::1 at 2021-11-09 22:54:27 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj@raj.com"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 14ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 601)
+
+
+Started POST "/login" for ::1 at 2021-11-09 22:56:37 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj@raj.com"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 50ms (Views: 33.9ms | ActiveRecord: 1.3ms | Allocations: 575)
+
+
+Started POST "/login" for ::1 at 2021-11-09 22:58:10 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 1696ms (Views: 180.3ms | ActiveRecord: 15.6ms | Allocations: 3521)
+
+
+Started POST "/login" for ::1 at 2021-11-10 09:27:07 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2021-11-10 09:42:25 +0530
+  [1m[35m (38.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj@raj.com"}}
+  [1m[36mUser Load (23.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 403ms (Views: 111.5ms | ActiveRecord: 105.5ms | Allocations: 1535)
+
+
+Started POST "/login" for ::1 at 2021-11-10 10:47:11 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj@raj.com"}}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 2628ms (Views: 178.7ms | ActiveRecord: 679.6ms | Allocations: 2578)
+
+
+Started POST "/login" for ::1 at 2021-11-10 11:21:56 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (32.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 11680ms (Views: 1074.0ms | ActiveRecord: 3886.7ms | Allocations: 5526)
+
+
+Started POST "/login" for ::1 at 2021-11-10 11:29:01 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (619.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 2367ms (Views: 54.2ms | ActiveRecord: 749.5ms | Allocations: 2755)
+
+
+Started POST "/login" for ::1 at 2021-11-10 11:32:41 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 922ms (Views: 2.0ms | ActiveRecord: 1.8ms | Allocations: 769)
+
+
+Started POST "/login" for ::1 at 2021-11-10 17:26:07 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (20.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 11088ms (Views: 1228.0ms | ActiveRecord: 2432.9ms | Allocations: 2793)
+
+
+Started POST "/login" for ::1 at 2021-11-10 17:33:44 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 3082ms (Views: 36.6ms | ActiveRecord: 130.8ms | Allocations: 2735)
+
+
+Started POST "/login" for ::1 at 2021-11-10 20:28:21 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (59.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 13170ms (Views: 1033.0ms | ActiveRecord: 2374.8ms | Allocations: 2782)
+
+
+Started POST "/login" for ::1 at 2021-11-10 21:44:44 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (229.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 56421ms (Views: 7331.8ms | ActiveRecord: 8175.3ms | Allocations: 2861)
+
+
+Started POST "/users" for ::1 at 2021-11-10 21:47:27 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (60.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (74.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 23929ms (Views: 3.0ms | ActiveRecord: 137.8ms | Allocations: 3340)
+
+
+Started POST "/users" for ::1 at 2021-11-11 11:25:16 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2021-11-11 11:56:27 +0530
+  [1m[35m (84.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (103.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 1419ms (Views: 140.1ms | ActiveRecord: 189.7ms | Allocations: 6457)
+
+
+Started POST "/users" for ::1 at 2021-11-11 13:11:01 +0530
+  [1m[35m (36.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (46.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (32.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 932ms (Views: 51.9ms | ActiveRecord: 469.2ms | Allocations: 9162)
+
+
+Started POST "/users" for ::1 at 2021-11-11 13:19:02 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 386ms (Views: 6.1ms | ActiveRecord: 52.2ms | Allocations: 4666)
+
+
+Started POST "/users" for ::1 at 2021-11-11 13:27:09 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 2795ms (Views: 252.9ms | ActiveRecord: 253.1ms | Allocations: 4605)
+
+
+Started POST "/users" for ::1 at 2021-11-11 13:49:18 +0530
+  [1m[35m (32.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:11: syntax error, unexpected ',', expecting =>
+...    render json: {@user.errors, @user.errors.messages}
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:11: syntax error, unexpected '}', expecting `end'
+....errors, @user.errors.messages}
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:38: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users_controller.rb:11: syntax error, unexpected ',', expecting =>
+app/controllers/users_controller.rb:11: syntax error, unexpected '}', expecting `end'
+app/controllers/users_controller.rb:38: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users_controller.rb:11: syntax error, unexpected ',', expecting =>
+app/controllers/users_controller.rb:11: syntax error, unexpected '}', expecting `end'
+app/controllers/users_controller.rb:38: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/users" for ::1 at 2021-11-11 14:32:19 +0530
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:11: syntax error, unexpected ',', expecting =>
+...    render json: {@user.errors, @user.errors.messages}
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:11: syntax error, unexpected '}', expecting `end'
+....errors, @user.errors.messages}
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/users_controller.rb:38: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users_controller.rb:11: syntax error, unexpected ',', expecting =>
+app/controllers/users_controller.rb:11: syntax error, unexpected '}', expecting `end'
+app/controllers/users_controller.rb:38: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users_controller.rb:11: syntax error, unexpected ',', expecting =>
+app/controllers/users_controller.rb:11: syntax error, unexpected '}', expecting `end'
+app/controllers/users_controller.rb:38: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/users" for ::1 at 2021-11-11 14:38:14 +0530
+  [1m[35m (127.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj8@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj8@raj.com"}}
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (98.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 10891ms (Views: 9676.2ms | ActiveRecord: 1069.4ms | Allocations: 12113)
+
+
+Started POST "/users" for ::1 at 2021-11-11 14:39:54 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj8@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj8@raj.com"}}
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (4.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 73ms (Views: 6.4ms | ActiveRecord: 12.6ms | Allocations: 3011)
+
+
+Started POST "/users" for ::1 at 2021-11-11 14:41:11 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj8@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj8@raj.com"}}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 89ms (Views: 6.4ms | ActiveRecord: 4.2ms | Allocations: 2955)
+
+
+Started POST "/users" for ::1 at 2021-11-11 14:41:39 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj8@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj8@raj.com"}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 98ms (Views: 3.8ms | ActiveRecord: 4.1ms | Allocations: 2956)
+
+
+Started POST "/users" for ::1 at 2021-11-11 14:41:59 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj8@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj8@raj.com"}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (4.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj8@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 80ms (Views: 4.6ms | ActiveRecord: 6.8ms | Allocations: 2955)
+
+
+Started POST "/users" for ::1 at 2021-11-11 14:43:25 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj7@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj7@raj.com"}}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj7@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj7@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 80ms (Views: 10.2ms | ActiveRecord: 11.9ms | Allocations: 2935)
+
+
+Started POST "/users" for ::1 at 2021-11-11 14:44:19 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj19@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj19@raj.com"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj19@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj19@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 82ms (Views: 2.6ms | ActiveRecord: 12.4ms | Allocations: 2934)
+
+
+  [1m[36mUser Load (29.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users" for ::1 at 2021-11-11 15:20:44 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj19@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj19@raj.com"}}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (478.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj19@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (20.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj19@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 36963ms (Views: 1799.4ms | ActiveRecord: 6837.3ms | Allocations: 4930)
+
+
+Started POST "/users" for ::1 at 2021-11-11 15:36:25 +0530
+  [1m[35m (20.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj21@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj21@raj.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (4.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj21@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1392.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raj21@raj.com"], ["password_digest", "$2a$12$qeJubHnk2Ufbjlq64NawL.OLRiiKV7IM24XwyS1MBCfgkTbIy3cla"], ["created_at", "2021-11-11 10:06:54.619732"], ["updated_at", "2021-11-11 10:06:54.619732"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1087.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (26.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "raj21@raj.com"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 4845ms (Views: 3.6ms | ActiveRecord: 3060.4ms | Allocations: 10604)
+
+
+Started POST "/users" for ::1 at 2021-11-11 16:00:34 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"raj29@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj29@raj.com"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (2059.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj29@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1532.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raj29@raj.com"], ["password_digest", "$2a$12$NHoBdKdCyzYux8HXq1GQwOzcRx8cxaI9WFvHI9/E2qOaT5n2.Dytm"], ["created_at", "2021-11-11 10:31:50.123754"], ["updated_at", "2021-11-11 10:31:50.123754"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (2569.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (242.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "raj29@raj.com"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+Completed 200 OK in 83008ms (Views: 1222.8ms | ActiveRecord: 21710.2ms | Allocations: 5689)
+
+
+Started POST "/login" for ::1 at 2021-11-11 16:50:44 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj29@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj29@raj.com"}}
+  [1m[36mUser Load (90.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj29@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 13014ms (Views: 584.7ms | ActiveRecord: 2106.3ms | Allocations: 3017)
+
+
+Started POST "/login" for ::1 at 2021-11-11 19:13:31 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  [1m[36mUser Load (211.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 33072ms (Views: 974.5ms | ActiveRecord: 11631.2ms | Allocations: 2691)
+
+
+Started POST "/login" for ::1 at 2021-11-11 19:33:17 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (180.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 46421ms (Views: 11025.7ms | ActiveRecord: 6076.9ms | Allocations: 2832)
+
+
+Started POST "/login" for ::1 at 2021-11-11 19:35:09 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 1197ms (Views: 4.6ms | ActiveRecord: 1.5ms | Allocations: 756)
+
+
+Started POST "/login" for ::1 at 2021-11-11 19:44:31 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (153.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Started POST "/login" for ::1 at 2021-11-11 19:44:47 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+Completed 200 OK in 14466ms (Views: 1640.5ms | ActiveRecord: 3464.5ms | Allocations: 3536)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 3134ms (Views: 2.7ms | ActiveRecord: 281.2ms | Allocations: 3023)
+
+
+Started POST "/login" for ::1 at 2021-11-11 20:27:21 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (74.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 9400ms (Views: 1011.7ms | ActiveRecord: 1559.7ms | Allocations: 2749)
+
+
+Started POST "/login" for ::1 at 2021-11-12 11:09:58 +0530
+  [1m[35m (39.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (37.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 1839ms (Views: 3.7ms | ActiveRecord: 224.6ms | Allocations: 8196)
+
+
+Started POST "/login" for ::1 at 2021-11-12 19:01:28 +0530
+  [1m[35m (52.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (34.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 2087ms (Views: 119.5ms | ActiveRecord: 216.2ms | Allocations: 7187)
+
+
+Started POST "/login" for ::1 at 2021-11-12 19:04:34 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 799ms (Views: 6.5ms | ActiveRecord: 1.1ms | Allocations: 808)
+
+
+Started POST "/login" for ::1 at 2021-11-12 19:11:50 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (42.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 8738ms (Views: 20.3ms | ActiveRecord: 893.2ms | Allocations: 2765)
+
+
+Started POST "/login" for ::1 at 2021-11-12 20:32:21 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (74.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 21985ms (Views: 270.6ms | ActiveRecord: 2152.3ms | Allocations: 2787)
+
+
+  [1m[36mBooking Load (114.7ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mClient Load (227.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/login" for ::1 at 2021-11-13 22:27:58 +0530
+Started POST "/login" for ::1 at 2021-11-13 22:27:58 +0530
+  [1m[35m (223.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com", "password"=>"[FILTERED]"}}
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (292.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (137.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 3798ms (Views: 232.0ms | ActiveRecord: 1798.4ms | Allocations: 7375)
+
+
+Completed 200 OK in 5655ms (Views: 285.3ms | ActiveRecord: 359.2ms | Allocations: 10694)
+
+
+Started POST "/clients" for ::1 at 2021-11-13 22:29:56 +0530
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+...t.find_or_create_by!(client.id: current_user.id)
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+...by!(client.id: current_user.id)
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting '}'
+      return json {client: @client, message: "Booking s...
+                         ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:11: syntax error, unexpected '}', expecting `end'
+... message: "Booking successful"}
+...                              ^
+):
+  
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting '}'
+app/controllers/clients_controller.rb:11: syntax error, unexpected '}', expecting `end'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting '}'
+app/controllers/clients_controller.rb:11: syntax error, unexpected '}', expecting `end'
+Started POST "/login" for ::1 at 2021-11-13 22:45:57 +0530
+  [1m[35m (16.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 1305ms (Views: 2.7ms | ActiveRecord: 91.2ms | Allocations: 7186)
+
+
+Started POST "/clients" for ::1 at 2021-11-13 22:46:31 +0530
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+...t.find_or_create_by!(client.id: current_user.id)
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+...by!(client.id: current_user.id)
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting `end'
+      return json: {client: @client, message: "...
+                 ^
+):
+  
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting `end'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting `end'
+Started POST "/clients" for ::1 at 2021-11-13 22:49:22 +0530
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+...t.find_or_create_by!(client.id: params[:current_user.id])
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+...t.id: params[:current_user.id])
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting `end'
+      return json: {client: @client, message: "...
+                 ^
+):
+  
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting `end'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:11: syntax error, unexpected ':', expecting `end'
+Started POST "/clients" for ::1 at 2021-11-13 22:54:20 +0530
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+...t.find_or_create_by!(client.id: params[:current_user.id])
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+...t.id: params[:current_user.id])
+...                              ^
+):
+  
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+Started POST "/login" for ::1 at 2021-11-14 22:20:13 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2021-11-14 22:27:59 +0530
+  [1m[35m (42.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj1@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj1@raj.com"}}
+  [1m[36mUser Load (29.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj1@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 1415ms (Views: 4.0ms | ActiveRecord: 96.3ms | Allocations: 7190)
+
+
+Started POST "/clients" for ::1 at 2021-11-14 22:29:20 +0530
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+...ient =Client.find_by(client.id: params[:current_user.id])
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+...t.id: params[:current_user.id])
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:27: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:27: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:27: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/clients" for ::1 at 2021-11-14 22:31:52 +0530
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+...ient =Client.find_by(client.id: params[:current_user.id])
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+...t.id: params[:current_user.id])
+...                              ^
+):
+  
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+Started POST "/clients" for ::1 at 2021-11-14 22:37:36 +0530
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+...ient =Client.find_by(client.id: current_user.id)
+...                              ^
+/mnt/d/RailsWork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+..._by(client.id: current_user.id)
+...                              ^
+):
+  
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+Started POST "/login" for ::1 at 2022-01-25 19:51:39 +0530
+  [1m[35m (109.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  [1m[36mUser Load (153.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 2318ms (Views: 123.3ms | ActiveRecord: 490.5ms | Allocations: 6807)
+
+
+Started POST "/login" for ::1 at 2022-01-25 19:52:15 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 1183ms (Views: 7.8ms | ActiveRecord: 1.1ms | Allocations: 1005)
+
+
+Started POST "/clients" for ::1 at 2022-01-25 19:53:26 +0530
+  
+SyntaxError (/mnt/d/railswork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+...ient =Client.find_by(client.id: current_user.id)
+...                              ^
+/mnt/d/railswork/jwt-rails-api/app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+..._by(client.id: current_user.id)
+...                              ^
+):
+  
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ':'
+app/controllers/clients_controller.rb:9: syntax error, unexpected ')', expecting `end'
+Started GET "/" for ::1 at 2022-01-26 12:51:16 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2022-01-26 12:51:23 +0530
+  
+ActiveRecord::ConnectionNotEstablished (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.4.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.4.1) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.4.1) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.4.1) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-01-26 12:52:22 +0530
+  [1m[35m (40.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/raj/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/raj/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 83.0ms | Allocations: 186)
+Completed 200 OK in 278ms (Views: 90.4ms | ActiveRecord: 0.0ms | Allocations: 1918)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-01-26 12:52:27 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/login" for ::1 at 2022-01-26 14:48:17 +0530
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  [1m[36mUser Load (148.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 6224ms (Views: 701.4ms | ActiveRecord: 2301.2ms | Allocations: 4465)
+
+
+Started POST "/login" for ::1 at 2022-01-26 15:04:01 +0530
+Started POST "/login" for ::1 at 2022-01-26 15:04:01 +0530
+Processing by UsersController#login as HTML
+Processing by UsersController#login as HTML
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  Parameters: {"email"=>"raj2@raj.com", "password"=>"[FILTERED]", "user"=>{"email"=>"raj2@raj.com"}}
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (167.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "raj2@raj.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 10536ms (Views: 1002.8ms | ActiveRecord: 1185.1ms | Allocations: 5503)
+
+
+Completed 200 OK in 10789ms (Views: 940.9ms | ActiveRecord: 1371.3ms | Allocations: 5389)
+
+
